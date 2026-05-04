@@ -142,10 +142,6 @@ Led a team of 16. Full event platform with scheduling, results, and admin system
 
 <div align="center">
 
-![Rajendrasinh's GitHub Stats](https://github-readme-stats.vercel.app/api?username=irkpadhiyar&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=irkpadhiyar&layout=compact&theme=tokyonight&hide_border=true&langs_count=8)
-
 ![GitHub Streak](https://streak-stats.demolab.com?user=irkpadhiyar&theme=tokyonight&hide_border=true)
 
 </div>

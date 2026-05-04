@@ -1,0 +1,114 @@
+/* ── Tab Bar Container ───────────────────────────────── */
+#tab-bar {
+  height: var(--tabbar-h);
+  background: var(--bg-tabbar);
+  display: flex;
+  align-items: flex-end;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+#tab-bar::-webkit-scrollbar {
+  height: 2px;
+}
+#tab-bar::-webkit-scrollbar-thumb {
+  background: var(--bg-scrollbar-thumb);
+}
+
+/* ── Individual Tab ──────────────────────────────────── */
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 100%;
+  min-width: var(--tab-min-w);
+  max-width: 200px;
+  background: var(--bg-tab-inactive);
+  color: var(--text-tab-inactive);
+  cursor: pointer;
+  font-size: 13px;
+  font-family: var(--font-ui);
+  border-right: 1px solid var(--border);
+  position: relative;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: background var(--t-fast), color var(--t-fast);
+  animation: tabAppear 0.15s ease-out;
+}
+
+.tab:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--bg-tab-active);
+  color: var(--text-tab-active);
+  border-top: 1px solid var(--border-active);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--bg-tab-active);
+}
+
+/* ── Tab Icon ────────────────────────────────────────── */
+.tab-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ── Tab Title ───────────────────────────────────────── */
+.tab-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Tab Close Button ────────────────────────────────── */
+.tab-close {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity var(--t-fast), background var(--t-fast);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.tab:hover .tab-close,
+.tab.active .tab-close {
+  opacity: 0.7;
+}
+.tab-close:hover {
+  opacity: 1 !important;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ── Modified dot (unsaved indicator) ───────────────── */
+.tab.modified .tab-close::before {
+  content: '●';
+  font-size: 8px;
+  color: var(--text-primary);
+}
+.tab.modified:hover .tab-close::before,
+.tab.modified.active .tab-close::before {
+  content: '×';
+  font-size: 16px;
+}
+
+@keyframes tabAppear {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

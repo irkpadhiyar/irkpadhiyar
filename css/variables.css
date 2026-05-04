@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ── Editor Backgrounds ─────────────────────────── */
+  --bg-editor:          #1e1e1e;
+  --bg-sidebar:         #252526;
+  --bg-tabbar:          #2d2d2d;
+  --bg-activity:        #333333;
+  --bg-terminal:        #1e1e1e;
+  --bg-terminal-header: #252526;
+  --bg-hover:           #2a2d2e;
+  --bg-selection:       #264f78;
+  --bg-active-file:     #094771;
+  --bg-tab-active:      #1e1e1e;
+  --bg-tab-inactive:    #2d2d2d;
+  --bg-splash:          #1e1e1e;
+  --bg-input:           #3c3c3c;
+  --bg-badge:           #4d4d4d;
+  --bg-tooltip:         #252526;
+  --bg-scrollbar-track: #1e1e1e;
+  --bg-scrollbar-thumb: #4d4d4d;
+
+  /* ── Text ───────────────────────────────────────── */
+  --text-primary:    #d4d4d4;
+  --text-secondary:  #9d9d9d;
+  --text-muted:      #6b6b6b;
+  --text-white:      #ffffff;
+  --text-statusbar:  #ffffff;
+  --text-tab-active: #ffffff;
+  --text-tab-inactive: #8e8e8e;
+  --text-line-num:   #858585;
+  --text-comment:    #6a9955;
+
+  /* ── Syntax Colors ──────────────────────────────── */
+  --syn-keyword:     #569cd6;
+  --syn-string:      #ce9178;
+  --syn-comment:     #6a9955;
+  --syn-function:    #dcdcaa;
+  --syn-type:        #4ec9b0;
+  --syn-number:      #b5cea8;
+  --syn-property:    #9cdcfe;
+  --syn-operator:    #d4d4d4;
+  --syn-punctuation: #d4d4d4;
+  --syn-class:       #4ec9b0;
+  --syn-variable:    #9cdcfe;
+  --syn-tag:         #569cd6;
+  --syn-attribute:   #9cdcfe;
+  --syn-regex:       #d16969;
+  --syn-interface:   #4ec9b0;
+  --syn-import:      #c586c0;
+  --syn-decorator:   #dcdcaa;
+  --syn-boolean:     #569cd6;
+
+  /* ── UI Elements ─────────────────────────────────── */
+  --border:           #3e3e3e;
+  --border-active:    #007acc;
+  --border-sidebar:   #1e1e1e;
+  --accent:           #007acc;
+  --accent-hover:     #1a8ad4;
+  --cursor-color:     #528bff;
+  --focus-border:     #007fd4;
+
+  /* ── Status Bar ──────────────────────────────────── */
+  --statusbar-bg:     #007acc;
+  --statusbar-text:   #ffffff;
+  --statusbar-hover:  #1a8ad4;
+
+  /* ── Terminal ────────────────────────────────────── */
+  --terminal-green:  #4ec9b0;
+  --terminal-blue:   #569cd6;
+  --terminal-yellow: #dcdcaa;
+  --terminal-red:    #f14c4c;
+  --terminal-prompt: #4ec9b0;
+
+  /* ── Fonts ───────────────────────────────────────── */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --font-ui:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-editor: 14px;
+  --font-size-ui:     12px;
+  --font-size-sm:     11px;
+  --line-height-editor: 1.6;
+
+  /* ── Dimensions ─────────────────────────────────── */
+  --activity-w:    48px;
+  --sidebar-w:     240px;
+  --statusbar-h:   22px;
+  --tabbar-h:      35px;
+  --terminal-h:    210px;
+  --line-num-w:    52px;
+  --minimap-w:     60px;
+  --tab-min-w:     120px;
+
+  /* ── Z-index ─────────────────────────────────────── */
+  --z-base:      1;
+  --z-sidebar:   10;
+  --z-tabs:      20;
+  --z-tooltip:   50;
+  --z-overlay:   100;
+  --z-splash:    1000;
+
+  /* ── Transitions ─────────────────────────────────── */
+  --t-fast:   0.1s ease;
+  --t-normal: 0.2s ease;
+  --t-slow:   0.35s ease;
+}
+
+/* ── One Dark Pro ───────────────────────────────────── */
+body.theme-one-dark {
+  --bg-editor:       #282c34;
+  --bg-sidebar:      #21252b;
+  --bg-tabbar:       #21252b;
+  --bg-activity:     #21252b;
+  --bg-terminal:     #282c34;
+  --bg-terminal-header: #21252b;
+  --bg-tab-active:   #282c34;
+  --bg-tab-inactive: #21252b;
+  --border:          #181a1f;
+  --syn-keyword:     #c678dd;
+  --syn-string:      #98c379;
+  --syn-comment:     #5c6370;
+  --syn-function:    #61afef;
+  --syn-type:        #e5c07b;
+  --syn-number:      #d19a66;
+  --syn-property:    #e06c75;
+  --syn-import:      #c678dd;
+  --statusbar-bg:    #21252b;
+}
+
+/* ── Dracula ─────────────────────────────────────────── */
+body.theme-dracula {
+  --bg-editor:       #282a36;
+  --bg-sidebar:      #21222c;
+  --bg-tabbar:       #21222c;
+  --bg-activity:     #21222c;
+  --bg-terminal:     #282a36;
+  --bg-terminal-header: #21222c;
+  --bg-tab-active:   #282a36;
+  --bg-tab-inactive: #21222c;
+  --border:          #191a21;
+  --syn-keyword:     #ff79c6;
+  --syn-string:      #f1fa8c;
+  --syn-comment:     #6272a4;
+  --syn-function:    #50fa7b;
+  --syn-type:        #8be9fd;
+  --syn-number:      #bd93f9;
+  --syn-property:    #ff79c6;
+  --syn-import:      #ff79c6;
+  --statusbar-bg:    #6272a4;
+}
+
+/* ── Nord ────────────────────────────────────────────── */
+body.theme-nord {
+  --bg-editor:       #2e3440;
+  --bg-sidebar:      #272c36;
+  --bg-tabbar:       #272c36;
+  --bg-activity:     #272c36;
+  --bg-terminal:     #2e3440;
+  --bg-terminal-header: #272c36;
+  --bg-tab-active:   #2e3440;
+  --bg-tab-inactive: #272c36;
+  --border:          #2e3440;
+  --syn-keyword:     #81a1c1;
+  --syn-string:      #a3be8c;
+  --syn-comment:     #616e88;
+  --syn-function:    #88c0d0;
+  --syn-type:        #8fbcbb;
+  --syn-number:      #b48ead;
+  --syn-property:    #d8dee9;
+  --syn-import:      #81a1c1;
+  --statusbar-bg:    #4c566a;
+}

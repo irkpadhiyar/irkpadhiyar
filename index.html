@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rajendrasinh Padhiyar — Lead Software Engineer. 12+ years building enterprise-grade platforms for aerospace & defense. React.js, Node.js, TypeScript expert."
+    />
+    <meta name="author" content="Rajendrasinh Padhiyar" />
+    <meta
+      property="og:title"
+      content="Rajendrasinh Padhiyar — Lead Software Engineer"
+    />
+    <meta
+      property="og:description"
+      content="12+ years of engineering leadership. React.js, Node.js, TypeScript. iBase-t."
+    />
+    <meta property="og:type" content="website" />
+    <title>Rajendrasinh Padhiyar · Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Design System -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/topbar.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/tabs.css" />
+    <link rel="stylesheet" href="css/editor.css" />
+    <link rel="stylesheet" href="css/terminal.css" />
+    <link rel="stylesheet" href="css/statusbar.css" />
+    <link rel="stylesheet" href="css/syntax.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ─── Loading Splash ──────────────────────────────── -->
+      <div id="splash">
+        <div class="splash-logo">
+          <svg
+            class="splash-logo-icon"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="100" height="100" rx="8" fill="#007acc" />
+            <text
+              x="50"
+              y="62"
+              text-anchor="middle"
+              font-family="Inter,sans-serif"
+              font-weight="800"
+              font-size="32"
+              fill="white"
+            >
+              RKP
+            </text>
+          </svg>
+          <div class="splash-logo-text"><span>R.P</span> Portfolio</div>
+        </div>
+        <div class="splash-progress-bar">
+          <div class="splash-progress-fill"></div>
+        </div>
+        <div class="splash-status">Initializing workspace...</div>
+      </div>
+
+      <!-- ─── macOS Top Bar ───────────────────────────────── -->
+      <div id="topbar">
+        <div class="topbar-logo" onclick="App.openFile('home.tsx')">
+          <!-- <svg>
+            <text y="50%"> < R.P > </text>
+          </svg> -->
+          <span class="logo-lt">&lt;</span><span class="logo-r">R</span><span class="logo-dot">.</span><span class="logo-p">P</span><span class="logo-gt">&gt;</span>
+        </div>
+
+        <div class="topbar-title-wrap">
+          <span id="topbar-file-name" class="topbar-active-file">home.tsx</span>
+        </div>
+      </div>
+
+      <!-- ─── Main VS Code Layout ─────────────────────────── -->
+      <div id="vscode">
+        <!-- ── Unified Sidebar (icons + file tree) ─────────── -->
+        <div id="sidebar">
+          <div id="activity-bar">
+            <!-- EXPLORER TOGGLE (always visible) -->
+            <button
+              class="activity-btn active"
+              id="btn-toggle-explorer"
+              data-tooltip="Toggle Explorer"
+              aria-label="Toggle Explorer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+            </button>
+
+            <!-- HOME -->
+            <button
+              class="activity-btn active"
+              data-file="home.tsx"
+              data-tooltip="Home"
+              aria-label="Home"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                />
+              </svg>
+            </button>
+
+            <!-- EXPERIENCE -->
+            <button
+              class="activity-btn"
+              data-file="experience.ts"
+              data-tooltip="Experience"
+              aria-label="Experience"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.96.5 13.5.5c-1.33 0-2.51.59-3.32 1.52L9 3.4l-1.18-1.38C6.99 1.09 5.83.5 4.5.5 2.04.5 0 2.54 0 4.66c0 .46.11.9.18 1.34H0v14c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7.5-4c1.15 0 2 .95 2 2S13.65 6.5 12.5 6.5H11V5.16c0-1.11.85-2.16 1.5-2.66zM2 4.66C2 3.65 2.95 2.5 4.5 2.5c.65.5 1.5 1.55 1.5 2.66V6.5H4.52C3.37 6.5 2 5.67 2 4.66zM22 20H2v-2h20v2zm0-4H2V8h5.58c.25.14.51.27.77.38.73.29 1.49.46 2.3.46h2.7c.81 0 1.57-.17 2.3-.46.26-.11.52-.24.77-.38H22v8z"
+                />
+              </svg>
+            </button>
+
+            <!-- SKILLS -->
+            <button
+              class="activity-btn"
+              data-file="skills.css"
+              data-tooltip="Skills"
+              aria-label="Skills"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </button>
+
+            <!-- PROJECTS -->
+            <button
+              class="activity-btn"
+              data-file="projects.json"
+              data-tooltip="Projects"
+              aria-label="Projects"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M3 3h8l2 2h8v14H3V3zm0 2v12h18V7h-7.83l-2-2H3z"
+                />
+              </svg>
+            </button>
+
+            <!-- ABOUT ME -->
+            <button
+              class="activity-btn"
+              data-file="about.md"
+              data-tooltip="About Me"
+              aria-label="About Me"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M12 3L1 9l4 2.18V15c0 3 3 5 7 5s7-2 7-5v-3.82L22 9l-10-6zm6 8.99l-6 3.27-6-3.27V14c0 1.66 2.69 3 6 3s6-1.34 6-3v-2.01zM3.5 10.76L12 5.98l8.5 4.78-8.5 4.63-8.5-4.63z"
+                />
+              </svg>
+            </button>
+
+            <!-- CONTACT -->
+            <button
+              class="activity-btn"
+              data-file="contact.html"
+              data-tooltip="Contact"
+              aria-label="Contact"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+            </button>
+
+            <div class="activity-spacer"></div>
+
+            <!-- TERMINAL toggle -->
+            <button
+              class="activity-btn"
+              data-tooltip="Toggle Terminal (Ctrl+`)"
+              aria-label="Terminal"
+              onclick="Terminal.toggleCollapse()"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M20 3H4v10H20V3zm-2 8H6V5h12v6zM4 17h4v2H4v-2zm0 0"
+                />
+                <path fill="currentColor" d="M8 17h12v2H8z" />
+              </svg>
+            </button>
+
+            <!-- SETTINGS -->
+            <button
+              class="activity-btn"
+              data-action="settings"
+              data-tooltip="Settings"
+              aria-label="Settings"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.68.07-1.08s-.03-.73-.07-1.08l2.32-1.8c.21-.16.27-.45.13-.68l-2.2-3.8c-.13-.23-.42-.31-.65-.22l-2.73 1.1c-.57-.43-1.17-.8-1.84-1.07l-.42-2.9c-.04-.25-.27-.43-.52-.43H7.42c-.25 0-.47.18-.52.43l-.42 2.9c-.67.27-1.27.64-1.84 1.07l-2.73-1.1c-.24-.09-.52 0-.65.22l-2.2 3.8c-.14.23-.08.52.13.68l2.32 1.8c-.04.35-.07.69-.07 1.08s.03.73.07 1.08l-2.32 1.8c-.21.16-.27.45-.13.68l2.2 3.8c.13.23.42.31.65.22l2.73-1.1c.57.43 1.17.8 1.84 1.07l.42 2.9c.05.25.27.43.52.43h4.4c.25 0 .47-.18.52-.43l.42-2.9c.67-.27 1.27-.64 1.84-1.07l2.73 1.1c.23.09.52 0 .65-.22l2.2-3.8c.14-.23.08-.52-.13-.68l-2.32-1.8z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- File panel (explorer tree) -->
+          <div id="file-panel">
+            <div id="file-panel-header">
+              <span class="file-panel-title">Explorer</span>
+              <button
+                id="btn-sidebar-collapse"
+                class="explorer-header-btn"
+                title="Collapse Sidebar"
+                aria-label="Collapse Sidebar"
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14">
+                  <path
+                    fill="currentColor"
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div id="file-tree">
+              <div class="file-tree-label">PORTFOLIO</div>
+              <ul class="file-tree-list" id="file-tree-list">
+                <!-- populated by app.js -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /sidebar -->
+
+        <!-- ── Editor Area ────────────────────────────────────── -->
+        <div id="editor-area">
+          <!-- Tab Bar -->
+          <div id="tab-bar"></div>
+
+          <!-- Editor Wrapper: line-nums + content + minimap -->
+          <div id="editor-wrapper">
+            <div id="line-numbers"></div>
+            <div id="editor-content">
+              <!-- Welcome screen -->
+              <div id="welcome-screen" class="section active">
+                <div class="welcome-logo">💻</div>
+                <h2>RKP Portfolio</h2>
+                <p>
+                  <span class="shortcut">Ctrl+`</span> toggle terminal
+                  &nbsp;·&nbsp; Click a file or activity icon to navigate
+                </p>
+                <p style="margin-top: 12px; color: var(--syn-type)">
+                  Rajendrasinh Padhiyar &nbsp;·&nbsp; Lead Software Engineer
+                  &nbsp;·&nbsp;
+                  <span style="color: var(--syn-keyword)">12+ years</span>
+                </p>
+                <div
+                  style="
+                    margin-top: 24px;
+                    display: flex;
+                    gap: 10px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <button
+                    onclick="App.openFile('home.tsx')"
+                    style="
+                      background: var(--accent);
+                      color: white;
+                      border: none;
+                      border-radius: 6px;
+                      padding: 10px 20px;
+                      font-family: var(--font-mono);
+                      font-size: 13px;
+                      cursor: pointer;
+                      font-weight: 500;
+                    "
+                  >
+                    → Open Home
+                  </button>
+                  <button
+                    onclick="App.openFile('projects.json')"
+                    style="
+                      background: transparent;
+                      color: var(--text-primary);
+                      border: 1px solid var(--border);
+                      border-radius: 6px;
+                      padding: 10px 20px;
+                      font-family: var(--font-mono);
+                      font-size: 13px;
+                      cursor: pointer;
+                    "
+                  >
+                    View Projects
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="minimap"><div class="minimap-content"></div></div>
+          </div>
+
+          <!-- Terminal Panel -->
+          <div id="terminal-panel">
+            <div id="terminal-resize-handle"></div>
+            <div id="terminal-header">
+              <div class="terminal-tab">
+                <span style="font-size: 12px">⚡</span>
+                <span class="terminal-tab-label">TERMINAL</span>
+              </div>
+              <div id="terminal-controls">
+                <button
+                  class="terminal-ctrl-btn"
+                  id="btn-terminal-collapse"
+                  title="Toggle Terminal (Ctrl+`)"
+                >
+                  ⌃
+                </button>
+              </div>
+            </div>
+            <div id="terminal-output"></div>
+            <div id="terminal-input-line">
+              <span id="terminal-prompt-text">rkp@portfolio:~$&nbsp;</span>
+              <input
+                id="terminal-input"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                autocorrect="off"
+                autocapitalize="off"
+                aria-label="Terminal input"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- /editor-area -->
+
+        <!-- ── Status Bar ─────────────────────────────────── -->
+        <div id="status-bar">
+          <div class="status-left">
+            <div class="status-item" data-tooltip="Git branch">
+              <span>⎇</span><span>main</span>
+            </div>
+            <div class="status-item"><span>✔</span><span>0</span></div>
+          </div>
+          <div class="status-right">
+            <div class="status-item">
+              <span id="status-file-label" style="font-weight: 500"
+                >home.tsx</span
+              >
+            </div>
+            <div class="status-sep"></div>
+            <div class="status-item">
+              <span id="status-lang-label">TypeScript JSX</span>
+            </div>
+            <div class="status-sep"></div>
+            <div class="status-item">UTF-8</div>
+            <div class="status-sep"></div>
+            <div class="status-item">Ln 1, Col 1</div>
+            <div class="status-sep"></div>
+            <div class="status-item">
+              <a
+                href="https://github.com/irkpadhiyar"
+                target="_blank"
+                rel="noopener"
+                style="display: flex; align-items: center; gap: 4px"
+                >⎇ irkpadhiyar</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /vscode -->
+    </div>
+    <!-- /app -->
+
+    <!-- Activity bar tooltip (JS-positioned, escapes overflow:hidden) -->
+    <div id="activity-tooltip"></div>
+
+    <!-- Settings overlay -->
+    <div id="settings-overlay"></div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel">
+      <div class="settings-header">
+        <span class="settings-title">⚙ Settings</span>
+        <button
+          class="settings-close"
+          onclick="
+            document.getElementById('settings-panel').classList.remove('open');
+            document
+              .getElementById('settings-overlay')
+              .classList.remove('visible');
+          "
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-label">Color Theme</div>
+        <div class="settings-themes">
+          <button class="settings-theme-btn active" data-theme="dark">
+            <span
+              class="stb-swatch"
+              style="background: #1e1e1e; border-color: #007acc"
+            ></span>
+            Dark+
+          </button>
+          <button class="settings-theme-btn" data-theme="one-dark">
+            <span
+              class="stb-swatch"
+              style="background: #282c34; border-color: #61dafb"
+            ></span>
+            One Dark
+          </button>
+          <button class="settings-theme-btn" data-theme="dracula">
+            <span
+              class="stb-swatch"
+              style="background: #282a36; border-color: #bd93f9"
+            ></span>
+            Dracula
+          </button>
+          <button class="settings-theme-btn" data-theme="nord">
+            <span
+              class="stb-swatch"
+              style="background: #2e3440; border-color: #88c0d0"
+            ></span>
+            Nord
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-label">Font Size</div>
+        <div class="settings-fontsize">
+          <button class="settings-fs-btn active" data-fontsize="13">
+            13px
+          </button>
+          <button class="settings-fs-btn" data-fontsize="14">14px</button>
+          <button class="settings-fs-btn" data-fontsize="15">15px</button>
+          <button class="settings-fs-btn" data-fontsize="16">16px</button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-label">Terminal</div>
+        <button class="settings-action-btn" id="settings-terminal-toggle">
+          ⚡ Toggle Terminal
+        </button>
+      </div>
+
+      <div class="settings-footer">
+        <span class="settings-version">RKP Portfolio v1.0</span>
+      </div>
+    </div>
+
+    <!-- Custom cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- JS load order: data → renderer → terminal → app -->
+    <script src="js/data.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

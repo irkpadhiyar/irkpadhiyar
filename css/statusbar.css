@@ -1,0 +1,82 @@
+/* ── Status Bar ──────────────────────────────────────── */
+#status-bar {
+  background: var(--statusbar-bg);
+  color: var(--statusbar-text);
+  height: var(--statusbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  line-height: 1;
+  z-index: var(--z-tabs);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  height: 100%;
+  cursor: default;
+  white-space: nowrap;
+  transition: background var(--t-fast);
+  font-size: 11px;
+}
+.status-item:hover {
+  background: rgba(255,255,255,0.15);
+}
+.status-item a {
+  color: inherit;
+  text-decoration: none;
+}
+.status-item a:hover { text-decoration: underline; }
+
+/* Branch icon */
+.status-branch-icon {
+  font-size: 13px;
+}
+
+/* Error/warning counts */
+.status-errors {
+  gap: 6px;
+}
+
+/* Separator */
+.status-sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 2px;
+}
+
+/* ── Tooltip on status bar ───────────────────────────── */
+.status-item[data-tooltip] {
+  position: relative;
+}
+.status-item[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tooltip);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: var(--z-tooltip);
+}

@@ -1,0 +1,299 @@
+/* ── Loading Splash ──────────────────────────────────── */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-splash);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-splash);
+  gap: 28px;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+#splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.splash-logo-icon {
+  width: 56px;
+  height: 56px;
+  opacity: 0.9;
+}
+.splash-logo-text {
+  font-family: var(--font-ui);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+.splash-logo-text span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.splash-progress-bar {
+  width: 240px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.splash-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: splashProgress 1.4s ease-out forwards;
+}
+.splash-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  animation: splashStatusFade 1.4s ease-in-out;
+}
+
+@keyframes splashProgress {
+  0%   { width: 0%; }
+  30%  { width: 35%; }
+  60%  { width: 65%; }
+  85%  { width: 88%; }
+  100% { width: 100%; }
+}
+@keyframes splashStatusFade {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* ── Typing Effect ───────────────────────────────────── */
+.typing-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--cursor-color);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Section Enter Animation ─────────────────────────── */
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ── Card stagger reveal ─────────────────────────────── */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.30s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.40s; }
+
+/* ── IntersectionObserver reveal ─────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Pulse animation (for "current" badge) ───────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Tab slide-in ────────────────────────────────────── */
+@keyframes tabAppear {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Terminal line appear ────────────────────────────── */
+@keyframes termLineIn {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.t-line { animation: termLineIn 0.1s ease-out; }
+
+/* ── Skill tag hover glow ────────────────────────────── */
+.skill-tag {
+  transition: background var(--t-fast), border-color var(--t-fast),
+              transform var(--t-fast), box-shadow var(--t-fast);
+}
+.skill-tag:hover {
+  box-shadow: 0 0 8px rgba(86, 156, 214, 0.3);
+}
+
+/* ── Project card hover ──────────────────────────────── */
+.project-card {
+  transition: border-color var(--t-normal), background var(--t-normal),
+              transform var(--t-normal), box-shadow var(--t-normal);
+}
+
+/* ── Sidebar item transition ─────────────────────────── */
+.file-item {
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+/* ── Status bar info cycle ───────────────────────────── */
+#status-file-label {
+  transition: opacity var(--t-normal);
+}
+
+/* ── Easter egg burst animation ──────────────────────── */
+@keyframes hireMe {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.08); }
+  60%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+.hire-me-msg {
+  animation: hireMe 0.6s ease-out;
+  color: var(--syn-type) !important;
+}
+
+/* ── JS Tooltip (positioned via getBoundingClientRect) ── */
+#activity-tooltip {
+  position: fixed;
+  background: #252526;
+  color: #d4d4d4;
+  border: 1px solid #454545;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+#activity-tooltip.visible { opacity: 1; }
+
+/* ── Activity bar icon colors ────────────────────────── */
+#btn-explorer-toggle                      { color: #c586c0; }
+.activity-btn[data-file="home.tsx"]       { color: #61afef; }
+.activity-btn[data-file="experience.ts"]  { color: #d19a66; }
+.activity-btn[data-file="skills.css"]     { color: #98c379; }
+.activity-btn[data-file="projects.json"]  { color: #e5c07b; }
+.activity-btn[data-file="about.md"]       { color: #4ec9b0; }
+.activity-btn[data-file="contact.html"]   { color: #e06c75; }
+.activity-btn[data-tooltip="Toggle Terminal (Ctrl+`)"] { color: #56b6c2; }
+.activity-btn[data-action="settings"]     { color: #abb2bf; }
+
+/* ── Activity bar icon hover animations ──────────────── */
+.activity-btn svg {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.activity-btn:hover svg {
+  transform: scale(1.2);
+}
+.activity-btn[data-action="settings"]:hover svg {
+  transform: rotate(45deg) scale(1.1);
+}
+.activity-btn[data-file="home.tsx"]:hover svg {
+  transform: translateY(-2px) scale(1.15);
+}
+.activity-btn.active svg {
+  transform: scale(1.05);
+}
+
+/* ── Tab pin indicator ───────────────────────────────── */
+.tab-pin {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Custom Cursor ───────────────────────────────────── */
+* { cursor: none !important; }
+
+#cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  margin: -3px 0 0 -3px;
+  transition: width 0.15s, height 0.15s, background 0.15s, margin 0.15s;
+  will-change: transform;
+}
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 30px; height: 30px;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  margin: -15px 0 0 -15px;
+  transition: width 0.2s, height 0.2s, border-color 0.2s, margin 0.2s;
+  will-change: transform;
+}
+
+/* Hover state */
+#cursor-dot.hovered {
+  width: 10px; height: 10px;
+  margin: -5px 0 0 -5px;
+  background: var(--accent);
+}
+#cursor-ring.hovered {
+  width: 42px; height: 42px;
+  margin: -21px 0 0 -21px;
+  border-color: var(--accent);
+  border-width: 1.5px;
+}
+
+/* Click state */
+#cursor-dot.clicked {
+  width: 4px; height: 4px;
+  margin: -2px 0 0 -2px;
+  background: var(--syn-type);
+}
+#cursor-ring.clicked {
+  width: 22px; height: 22px;
+  margin: -11px 0 0 -11px;
+  border-color: var(--syn-type);
+}
+
+@media (pointer: coarse) {
+  * { cursor: auto !important; }
+  #cursor-dot, #cursor-ring { display: none; }
+}

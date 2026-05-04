@@ -1,0 +1,99 @@
+/* ── File Panel Header (now in layout.css) ──────────── */
+#file-panel-header {
+  padding: 10px 12px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── File Tree ───────────────────────────────────────── */
+#file-tree {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px 0 4px;
+}
+
+.file-tree-label {
+  padding: 2px 12px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── File Tree Items ─────────────────────────────────── */
+.file-tree-list {
+  padding: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 12px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  border-left: 2px solid transparent;
+  transition: background var(--t-fast), color var(--t-fast), padding-left var(--t-fast);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.file-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  padding-left: 16px;
+}
+.file-item.active {
+  background: var(--bg-active-file);
+  color: var(--text-white);
+  border-left-color: var(--border-active);
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+/* ── File Extension Badge ────────────────────────────── */
+.file-ext-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 16px;
+  border-radius: 3px;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  letter-spacing: -0.3px;
+  padding: 0 3px;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+.file-item:hover .file-ext-badge {
+  transform: scale(1.08);
+}
+
+
+/* ── Sidebar Section (Open Editors etc) ──────────────── */
+.sidebar-section-header {
+  padding: 8px 12px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}

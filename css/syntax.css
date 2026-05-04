@@ -1,0 +1,131 @@
+/* ── Syntax Highlighting Classes ──────────────────────── */
+
+/* Base code text */
+.code-text { color: var(--text-primary); }
+
+/* Keywords: const, let, var, function, return, import, export, interface, type... */
+.kw   { color: var(--syn-keyword); }
+
+/* Strings: "...", '...', `...` */
+.str  { color: var(--syn-string); }
+
+/* Comments: // ..., /* ... */
+.cmt  { color: var(--syn-comment); font-style: italic; }
+
+/* Function / method names */
+.fn   { color: var(--syn-function); }
+
+/* Types, interfaces, class names */
+.typ  { color: var(--syn-type); }
+
+/* Numbers */
+.num  { color: var(--syn-number); }
+
+/* Object properties / keys */
+.prop { color: var(--syn-property); }
+
+/* Operators: =, +, -, ===, => */
+.op   { color: var(--syn-operator); }
+
+/* Punctuation: { } ( ) [ ] , ; : */
+.punc { color: var(--syn-punctuation); }
+
+/* Variables */
+.var  { color: var(--syn-variable); }
+
+/* Import / export keywords */
+.imp  { color: var(--syn-import); }
+
+/* Decorators */
+.deco { color: var(--syn-decorator); }
+
+/* Boolean: true, false, null, undefined */
+.bool { color: var(--syn-boolean); }
+
+/* Regex */
+.re   { color: var(--syn-regex); }
+
+/* HTML tags */
+.tag  { color: var(--syn-tag); }
+
+/* HTML attributes */
+.attr { color: var(--syn-attribute); }
+
+/* CSS property names */
+.css-prop { color: var(--syn-property); }
+
+/* CSS values */
+.css-val  { color: var(--syn-string); }
+
+/* CSS selectors */
+.css-sel  { color: var(--syn-function); }
+
+/* Markdown headings */
+.md-h1 { color: var(--syn-function); font-weight: 600; font-size: 1.4em; }
+.md-h2 { color: var(--syn-type);     font-weight: 600; font-size: 1.2em; }
+.md-h3 { color: var(--syn-keyword);  font-weight: 600; }
+
+/* Markdown bold */
+.md-bold { color: var(--text-white); font-weight: 600; }
+
+/* Markdown code inline */
+.md-code {
+  color: var(--syn-string);
+  background: rgba(255,255,255,0.06);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+
+/* Markdown list */
+.md-bullet { color: var(--syn-keyword); }
+
+/* JSON keys */
+.json-key { color: var(--syn-property); }
+
+/* JSON string value */
+.json-str { color: var(--syn-string); }
+
+/* JSON number value */
+.json-num { color: var(--syn-number); }
+
+/* JSON boolean / null value */
+.json-bool { color: var(--syn-boolean); }
+
+/* JSON bracket / punctuation */
+.json-punc { color: var(--syn-punctuation); }
+
+/* ── Section header inside code view ───────────────── */
+.code-section-divider {
+  display: block;
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+  opacity: 0.4;
+}
+
+/* ── Diff-style highlight ──────────────────────────── */
+.line-added   { background: rgba(78, 201, 176, 0.08); }
+.line-removed { background: rgba(241, 76, 76, 0.08); }
+
+/* ── Hover tooltip on skill/project (NOT activity bar buttons) ─ */
+[data-tooltip]:not(.activity-btn) {
+  position: relative;
+}
+[data-tooltip]:not(.activity-btn):hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tooltip);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: var(--z-tooltip);
+  font-family: var(--font-ui);
+}
